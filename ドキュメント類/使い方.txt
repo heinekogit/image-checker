@@ -1,0 +1,8 @@
+＜使い方＞
+vscodeのターミナル例：
+PS C:\projects\image-checker> .\.venv\Scripts\Activate.ps1
+(.venv) PS C:\projects\image-checker> cd src
+(.venv) PS C:\projects\image-checker\src> python read_image.py
+読み込み成功
+サイズ: (22, 18, 3)
+(.venv) PS C:\projects\image-checker\src> (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& c:\projects\image-checker\.venv\Scripts\Activate.ps1)
