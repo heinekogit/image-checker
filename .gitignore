@@ -1,3 +1,5 @@
 output/
 test_output/
 tests/
+__pycache__/
+*.pyc
