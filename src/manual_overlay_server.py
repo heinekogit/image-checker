@@ -238,7 +238,7 @@ INDEX_HTML = r"""<!doctype html>
           <label>境界ぼかし<input id="feather" type="number" step="1" value="2"></label>
         </div>
         <div class="row">
-          <label>光彩の広がり<input id="glow" type="number" step="1" value="24"></label>
+          <label>光彩の広がり<input id="glow" type="number" step="1" value="60"></label>
           <label>モザイク粗さ<input id="blockSize" type="number" step="1" value="12"></label>
         </div>
       </fieldset>
@@ -330,7 +330,7 @@ INDEX_HTML = r"""<!doctype html>
       el("shape").value = "ellipse";
       el("angle").value = 0;
       el("feather").value = 2;
-      el("glow").value = 24;
+      el("glow").value = 60;
       el("blockSize").value = 12;
       if (el("tool").value === "mosaic") {
         el("width").value = 180;

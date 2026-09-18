@@ -250,7 +250,8 @@ A/A2差分抽出は有効。
 あるいは修正ボカシのみのjpgとして保存し、photoshopのスクリプトで画像に重ね合成を自動化。
 
 
-起動コマンド
+起動コマンド ------------------------------------
+現行版:
 .\.venv\Scripts\python.exe .\src\manual_overlay_server.py
 
 images: C:\projects\image-checker\tests\B_original\image
@@ -258,8 +259,9 @@ output: C:\projects\image-checker\output\manual_overlay
 url: http://127.0.0.1:8000
 
 
-
-
+候補生成版:
+.\.venv\Scripts\python.exe .\src\manual_overlay_variants_server.py
+http://127.0.0.1:8002
 
 
 

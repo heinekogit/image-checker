@@ -47,12 +47,12 @@ def mask_for_operation(shape: tuple[int, int], operation: dict[str, Any]) -> np.
         cv2.ellipse(mask, (x, y), axes, angle, 0, 360, 255, -1)
 
     if operation.get("tool") == "white_glow":
-        glow = int(operation.get("glow", operation.get("strength", 24)))
+        glow = int(operation.get("glow", operation.get("strength", 60)))
         if glow > 0:
-            kernel = glow * 2 + 1
-            if kernel % 2 == 0:
-                kernel += 1
-            glow_mask = cv2.GaussianBlur(mask, (kernel, kernel), 0)
+            distance = cv2.distanceTransform(255 - mask, cv2.DIST_L2, 5)
+            falloff = np.clip(1.0 - (distance / float(glow)), 0.0, 1.0)
+            falloff = falloff * falloff * (3.0 - 2.0 * falloff)
+            glow_mask = np.round(falloff * 255.0).astype(np.uint8)
             mask = np.maximum(mask, glow_mask)
 
     feather = int(operation.get("feather", 0))
@@ -187,7 +187,7 @@ def write_sample_operations(path: Path) -> None:
                 "height": 90,
                 "angle": 8,
                 "opacity": 1.0,
-                "glow": 24,
+                "glow": 60,
             },
         ]
     }
